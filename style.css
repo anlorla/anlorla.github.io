@@ -385,3 +385,26 @@
     text-underline-offset: 3px;
   }
   .contact-row .plain:hover { color: var(--rust); }
+
+  /* 明暗按钮内的 SVG 图标（绝对居中） */
+  .theme-toggle svg { width: 15px; height: 15px; display: block; }
+
+  /* 粗箭头 more-link */
+  .more-link { display: inline-flex; align-items: center; gap: 7px; }
+  .more-link svg {
+    width: 15px; height: 12px; flex: 0 0 auto;
+    stroke: var(--rust); fill: none;
+    stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round;
+  }
+
+  /* ── 小屏适配 ── */
+  @media (max-width: 640px) {
+    .sheet { padding: 30px 18px 44px; gap: 28px; }
+    .nav-inner { padding: 8px 16px; flex-wrap: wrap; gap: 8px 14px; }
+    header { gap: 18px; }
+    .polaroid { margin: 6px auto 0; }
+    .contact-row { gap: 8px 16px; }
+    .pub { flex-direction: column; gap: 16px; }
+    .pub .thumb { width: min(100%, 250px); height: 140px; flex: 0 0 auto; }
+    .qr-pop { left: 0; transform: rotate(-2deg); }
+  }

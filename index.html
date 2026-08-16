@@ -15,8 +15,8 @@
   <div class="nav-inner">
     <span class="nav-name">yifan (ivy) wang</span>
     <div class="nav-links">
-      <a href="index.html" class="active">home</a>
-      <a href="publications.html">publications</a>
+      <a href="index.html" class="active">Home</a>
+      <a href="publications.html">Publications</a>
       <button class="theme-toggle" type="button" aria-label="Toggle light / dark mode">☾</button>
     </div>
   </div>
@@ -118,7 +118,7 @@
         </div>
       </article>
     </div>
-    <a class="more-link" href="publications.html">→ full list of publications</a>
+    <a class="more-link" href="publications.html"><svg viewBox="0 0 16 12" aria-hidden="true"><path d="M1 6h13M10 1.5 14.5 6 10 10.5"/></svg>full list of publications</a>
   </section>
 
   <footer>
@@ -138,7 +138,9 @@
     if (t === 'light' || t === 'dark') return t;
     return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   }
-  function render() { btn.textContent = current() === 'dark' ? '☀' : '☾'; }
+  var SUN = '<svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="3.1" fill="currentColor"/><g stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M8 1v2M8 13v2M1 8h2M13 8h2M3.05 3.05l1.4 1.4M11.55 11.55l1.4 1.4M3.05 12.95l1.4-1.4M11.55 4.45l1.4-1.4"/></g></svg>';
+  var MOON = '<svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M13.4 9.9A6.2 6.2 0 0 1 6.1 2.6a6.2 6.2 0 1 0 7.3 7.3Z"/></svg>';
+  function render() { btn.innerHTML = current() === 'dark' ? SUN : MOON; }
   btn.addEventListener('click', function () {
     var next = current() === 'dark' ? 'light' : 'dark';
     root.setAttribute('data-theme', next);
