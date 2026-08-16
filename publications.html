@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Publications — Yifan (Ivy) Wang</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Roboto+Slab:wght@400;700&family=Special+Elite&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="nav-inner">
+    <span class="nav-name">yifan (ivy) wang</span>
+    <div class="nav-links">
+      <a href="index.html">home</a>
+      <a href="publications.html" class="active">publications</a>
+      <button class="theme-toggle" type="button" aria-label="Toggle light / dark mode">☾</button>
+    </div>
+  </div>
+</nav>
+
+<!-- 印刷磨损滤镜：rough-sm 给文字毛边，rough-lg 给色块/标签撕裂边 -->
+<svg class="svg-defs" aria-hidden="true">
+  <filter id="rough-sm" x="-5%" y="-5%" width="110%" height="110%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.15" numOctaves="3" seed="7" result="n"/>
+    <feDisplacementMap in="SourceGraphic" in2="n" scale="1.6"/>
+  </filter>
+  <filter id="rough-lg" x="-5%" y="-5%" width="110%" height="110%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.055" numOctaves="4" seed="3" result="n"/>
+    <feDisplacementMap in="SourceGraphic" in2="n" scale="5"/>
+  </filter>
+</svg>
+
+<div class="sheet">
+  <section>
+    <h2 class="marker">publications</h2>
+    <h3 class="year">2026</h3>
+    <div class="pubs">
+      <article class="pub">
+        <div class="thumb" data-type="tech report"><video src="media/n0_foundation_demo.mp4" autoplay muted loop playsinline preload="metadata"></video></div>
+        <div class="meta">
+          <h3 class="title">𝒩₀-Foundation: Towards the Age of Tactile Intelligence</h3>
+          <p class="authors">NeoteAI Team, <span class="me">Yifan Wang</span><span class="dagger">†</span> <span class="contrib">(†core contributor)</span></p>
+          <span class="venue">TECH REPORT · 2026</span>
+          <div class="links"><a href="https://research.neoteai.com/assets/n0-foundation-report.pdf">[report]</a> <a href="https://research.neoteai.com/n0-foundation/">[project]</a> <a href="https://github.com/neoteai/N0-Foundation">[code]</a> <a href="https://huggingface.co/datasets/NeoteAIEmbodied/OpenNeoData">[dataset]</a></div>
+        </div>
+      </article>
+      <article class="pub">
+        <div class="thumb" data-type="tech report"><video src="media/n0_twam_demo.mp4" autoplay muted loop playsinline preload="metadata"></video></div>
+        <div class="meta">
+          <h3 class="title">𝒩₀-TWAM: Scaling Tactile-Native World Action Model for Contact-Rich Manipulation</h3>
+          <p class="authors">NeoteAI Team, <span class="me">Yifan Wang</span><span class="dagger">†</span> <span class="contrib">(†core contributor)</span></p>
+          <span class="venue">TECH REPORT · 2026</span>
+          <div class="links"><a href="https://research.neoteai.com/assets/n0-twam-report.pdf">[report]</a> <a href="https://research.neoteai.com/n0-twam/">[project]</a> <a href="https://github.com/neoteai/N0-TWAM">[code]</a> <a href="https://huggingface.co/NeoteAI/n0-twam-base">[checkpoints]</a></div>
+        </div>
+      </article>
+      <article class="pub">
+        <div class="thumb" data-type="tech report"><video src="media/n0_vtla_demo.mp4" autoplay muted loop playsinline preload="metadata"></video></div>
+        <div class="meta">
+          <h3 class="title">𝒩₀-VTLA: Scaling Vision-Tactile-Language-Action Model with Latent Tactile Tokens</h3>
+          <p class="authors">NeoteAI Team, <span class="me">Yifan Wang</span> <span class="contrib">(Data Processing)</span></p>
+          <span class="venue">TECH REPORT · 2026</span>
+          <div class="links"><a href="https://research.neoteai.com/assets/n0-vtla-report.pdf">[report]</a> <a href="https://research.neoteai.com/n0-vtla/">[project]</a> <a href="https://github.com/neoteai/N0-VTLA">[code]</a> <a href="https://huggingface.co/NeoteAI/n0-vtla-base">[checkpoints]</a></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <footer>
+    <span><span class="footer-dots" aria-hidden="true"><i></i><i></i><i></i><i></i></span>design updated from <a href="https://github.com/luost26/academic-homepage">academic-homepage</a> · last updated 2026.08</span>
+  </footer>
+</div>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  var btn = document.querySelector('.theme-toggle');
+  var saved = null;
+  try { saved = localStorage.getItem('theme'); } catch (e) {}
+  if (saved === 'light' || saved === 'dark') root.setAttribute('data-theme', saved);
+  function current() {
+    var t = root.getAttribute('data-theme');
+    if (t === 'light' || t === 'dark') return t;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+  function render() { btn.textContent = current() === 'dark' ? '☀' : '☾'; }
+  btn.addEventListener('click', function () {
+    var next = current() === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('theme', next); } catch (e) {}
+    render();
+  });
+  render();
+})();
+</script>
+</body>
+</html>
